@@ -71,3 +71,24 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Despliegue en Elastic Beanstalk (AWS)
+
+Se realiza despliegue en EB de AWS, se realizan las siguientes configuraciones:
+
+1. Se agrega un nuevo directorio llamado ".ebextensions"
+2. dentro del directorio nuevo se crea un archivo llamado "nodecommand.config"
+3. dentro del archivo se agrega
+
+```
+option_settings:
+  aws:elasticbeanstalk:container:nodejs:
+    NodeCommand: "npm start"
+```
+
+4. Se agrega archivo .npmrc, con el contenido ` unsafe-perm=true`
+5. Se agrega la variable de entorno PORT en el archivo main.ts para que tenga en cuenta ese puerto en caso de encontrarlo sino coloca el 3000
+
+```
+await app.listen(process.env.PORT || 3000);
+```
