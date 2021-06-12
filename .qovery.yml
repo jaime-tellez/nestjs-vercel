@@ -1,0 +1,11 @@
+---
+application:
+  name: "nestjs-vercel"
+  project: "project-nestjs"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-nestjs-vercel"
+  routes:
+  - application_name: "nestjs-vercel"
+    paths:
+    - "/*"
